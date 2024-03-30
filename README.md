@@ -156,8 +156,13 @@ d. Cari purchase date dan amount (quantity) dari nama adriaens <br />
 	echo "$adriaens"
     	
     	`
+![Screenshot 2024-03-30 225920](https://github.com/Aceeen/Sisop-1-2024-MH-IT23/assets/150018995/538a7a34-4175-499d-8756-c017367f97fa)
+
+     
 ### REVISI SOAL 1
-Sebelumnya terdapat kesalahan pada kode untuk segment dengan profit terkecil dan 3 category dengan total profit tertinggi. Berikut revisinya :
+Sebelumnya terdapat kesalahan pada kode untuk segment dengan profit terkecil dan 3 category dengan total profit tertinggi. Berikut revisinya : <br />
+  Pada soal 1b kesalahan terdapat pada penentuan kolom segment yang seharusnya $7 pada command awal tertulis $14. <br />
+  Pada soal 1c kesalahan terdapat pada sorting system yang seharusnya diurutkan dari tertinggi ke terendah. <br />
 
 	`
 	#!/bin/bash
@@ -193,9 +198,10 @@ Sebelumnya terdapat kesalahan pada kode untuk segment dengan profit terkecil dan
 	echo "Adriaens order date dan quantity:"
 	echo "$adriaens"
  	`
-  Pada soal 1b kesalahan terdapat pada penentuan kolom segment yang seharusnya $7 pada command awal tertulis $14. <br />
-  Pada soal 1c kesalahan terdapat pada sorting system yang seharusnya diurutkan dari tertinggi ke terendah.
- 
+![Screenshot 2024-03-30 225937](https://github.com/Aceeen/Sisop-1-2024-MH-IT23/assets/150018995/095b12a4-c3f7-47e7-8391-a17f86ef8b28)
+
+ <br />
+ <br />
 ### SOAL 2
 -Aisyah Rahmasari (5027231072)
 
