@@ -143,6 +143,7 @@ d. Cari purchase date dan amount (quantity) dari nama adriaens <br />
 	
 	# 3 kategori dengan profit terbanyak
 	top3cat=$(awk -F ',' '{sum[$14] += $20} END { for (Category in sum) { print Category } }' Sandbox.csv | sort -nr | head -n 3)
+ 
 	
 	# Order date dan quantity dari pemesanan Adriaens
 	adriaens=$(awk -F ',' 'NR==1 { for (i=1; i<=NF; ++i) headers[i] = $i; next } { if ($6 == "Adriaens Grayland") { print headers[2], $2, headers[18], $18 } }' Sandbox.csv)
@@ -155,6 +156,46 @@ d. Cari purchase date dan amount (quantity) dari nama adriaens <br />
 	echo "$adriaens"
     	
     	`
+### REVISI SOAL 1
+Sebelumnya terdapat kesalahan pada kode untuk segment dengan profit terkecil dan 3 category dengan total profit tertinggi. Berikut revisinya :
+
+	`
+	#!/bin/bash
+	# Sales terbanyak
+	sales_terbanyak=$(awk -F ',' 'NR == 1 { next } { if ($17 > tertinggi) { tertinggi = $17; cust = $6 } } END { print cust }' Sandbox.csv)
+	
+	# Segment dengan profit terkecil
+	profitMin=$(awk -F ',' '
+	NR > 1 {
+	  segment[$7] += $20
+	}
+	END {
+	  for (s in segment) {
+	    if (minProfit == "" || segment[s] < minProfit) {
+	      minProfit = segment[s]
+	      minSegment = s
+	    }
+	  }
+	  print minSegment
+	}' Sandbox.csv)
+	
+	# 3 kategori dengan profit terbanyak
+	top3cat=$(awk -F ',' '{sum[$14] += $20} END { for (Category in sum) { printf("%d %s\n", sum[Category], Category) } }' Sandbox.csv | sort -nr | head -n 3)
+	
+	
+	# Order date dan quantity dari pemesanan Adriaens
+	adriaens=$(awk -F ',' 'NR==1 { for (i=1; i<=NF; ++i) headers[i] = $i; next } { if ($6 == "Adriaens Grayland") { print headers[2], $2, headers[18], $18 } }' Sandbox.csv)
+	
+	# Print results
+	echo "Sales terbanyak: $sales_terbanyak"
+	echo "Segment dengan profit terkecil: $profitMin"
+	echo "Top 3 Categories: $top3cat"
+	echo "Adriaens order date dan quantity:"
+	echo "$adriaens"
+ 	`
+  Pada soal 1b kesalahan terdapat pada penentuan kolom segment yang seharusnya $7 pada command awal tertulis $14. <br />
+  Pada soal 1c kesalahan terdapat pada sorting system yang seharusnya diurutkan dari tertinggi ke terendah.
+ 
 ### SOAL 2
 -Aisyah Rahmasari (5027231072)
 
